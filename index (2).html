@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M Arif Wani | ML Engineer & Data Scientist</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4361ee;
+            --secondary: #3f37c9;
+            --accent: #4895ef;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --success: #4cc9f0;
+            --warning: #ffd166;
+            --danger: #ef476f;
+            --gradient-start: #1a2a6c;
+            --gradient-mid: #b21f1f;
+            --gradient-end: #1a2a6c;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
+            background-attachment: fixed;
+            color: #333;
+            overflow-x: hidden;
+        }
+        
+        .navbar {
+            background: rgba(13, 19, 33, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s ease;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+        
+        .navbar-brand i {
+            margin-right: 10px;
+            color: var(--accent);
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(13, 19, 33, 0.8), rgba(13, 19, 33, 0.9)), url('https://images.unsplash.com/photo-1504639725590-34d0984388bd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1974&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 150px 0 100px;
+            border-radius: 0 0 30px 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            animation: fadeInDown 1s ease;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            animation: fadeInDown 1s ease 0.2s forwards;
+            opacity: 0;
+        }
+        
+        .hero-highlight {
+            color: var(--accent);
+            font-weight: 600;
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            border: none;
+            padding: 12px 30px;
+            font-weight: 500;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease 0.4s forwards;
+            opacity: 0;
+        }
+        
+        .btn-primary:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 50px;
+            color: white;
+            text-align: center;
+            font-weight: 700;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+        
+        .about-content {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            transition: all 0.4s ease;
+        }
+        
+        .about-content:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+        }
+        
+        .about-img {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            transition: all 0.4s ease;
+        }
+        
+        .about-img:hover {
+            transform: scale(1.03);
+        }
+        
+        .skill-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .skill-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .progress {
+            height: 12px;
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+        
+        .project-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            height: 100%;
+            margin-bottom: 30px;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .project-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+        
+        .project-content {
+            padding: 25px;
+        }
+        
+        .project-badge {
+            background: var(--accent);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-right: 5px;
+            margin-bottom: 5px;
+            display: inline-block;
+        }
+        
+        .contact-form {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .form-control {
+            border-radius: 10px;
+            padding: 12px 20px;
+            border: 1px solid #ddd;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 0.25rem rgba(67, 97, 238, 0.25);
+        }
+        
+        footer {
+            background: rgba(13, 19, 33, 0.95);
+            color: rgba(255, 255, 255, 0.7);
+            padding: 60px 0 20px;
+        }
+        
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            font-size: 1.2rem;
+            margin-right: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            background: var(--primary);
+            transform: translateY(-5px);
+        }
+        
+        .floating-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .floating-btn:hover {
+            transform: translateY(-5px) rotate(10deg);
+            background: var(--secondary);
+            color: white;
+        }
+        
+        .animated-element {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-brain"></i>
+                <span>M Arif Wani</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <div class="hero-content">
+                        <h1 class="hero-title">M Arif Wani</h1>
+                        <p class="hero-subtitle">Machine Learning Engineer | <span class="hero-highlight">Data Scientist</span> | Web Developer</p>
+                        <p class="lead mb-4">I transform complex data into intelligent solutions and build AI-powered applications that solve real-world problems.</p>
+                        <a href="#projects" class="btn btn-primary btn-lg">View My Projects</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-none d-lg-block">
+                    <div class="position-relative">
+                        <div class="position-absolute top-0 start-0 w-100 h-100 bg-primary rounded-circle opacity-25" style="transform: translate(-20%, -20%);"></div>
+                        <div class="position-absolute top-0 start-0 w-100 h-100 bg-accent rounded-circle opacity-25" style="transform: translate(20%, 20%);"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="row">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <div class="about-img">
+                        <img src="C:\Users\ARIF\Downloads\WhatsApp Image 2025-07-12 at 9.25.32 AM.jpeg" alt="M Arif Wani" class="img-fluid">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="about-content animated-element">
+                        <h3 class="mb-4">Machine Learning & Data Science Student</h3>
+                        <p class="mb-4">I'm a passionate student specializing in Machine Learning, Data Science, and Web Development. My journey in technology began with a fascination for how data can transform industries and create intelligent solutions.</p>
+                        <p class="mb-4">Currently, I'm focused on mastering the latest AI technologies and frameworks, with a special interest in DeepSeek AI applications. I believe in continuous learning and staying at the forefront of technological innovation.</p>
+                        <div class="d-flex">
+                            <div class="me-4">
+                                <h4 class="text-primary">Education</h4>
+                                <p>M.C.A from University of Kashmir</p>
+                                <p>Specialization in ML & AI</p>
+                            </div>
+                            <div>
+                                <h4 class="text-primary">Interests</h4>
+                                <p>Machine learning</p>
+                                <p>FrontEnd Developer</p>
+                                <p>Data analysis</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section bg-dark">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="skill-card animated-element">
+                        <div class="skill-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h4>Web Development</h4>
+                        <p>Front-end development with modern frameworks and libraries</p>
+                        <div class="d-flex justify-content-between mb-2">
+                            <span>HTML/CSS</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar bg-primary" style="width: 95%"></div>
+                        </div>
+                        <div class="d-flex justify-content-between mb-2">
+                            <span>JavaScript</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar bg-primary" style="width: 90%"></div>
+                        </div>
+                        <div class="d-flex justify-content-between mb-2">
+                            <span>Bootstrap</span>
+                            <span>92%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar bg-primary" style="width: 92%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="skill-card animated-element">
+                        <div class="skill-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h4>Data Science</h4>
+                        <p>Data analysis, visualization, and machine learning implementation</p>
+                        <div class="d-flex justify-content-between mb-2">
+                            <span>Python</span>
+                            <span>92%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar bg-success" style="width: 92%"></div>
+                        </div>
+                        <div class="d-flex justify-content-between mb-2">
+                            <span>Pandas/NumPy</span>
+                            <span>88%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar bg-success" style="width: 88%"></div>
+                        </div>
+                        <div class="d-flex justify-content-between mb-2">
+                            <span>Matplotlib/Seaborn</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar bg-success" style="width: 85%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="skill-card animated-element">
+                        <div class="skill-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h4>Machine Learning</h4>
+                        <p>Building and deploying intelligent models and AI solutions</p>
+                        <div class="d-flex justify-content-between mb-2">
+                            <span>Scikit-learn</span>
+                            <span>87%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar bg-warning" style="width: 87%"></div>
+                        </div>
+                        <div class="d-flex justify-content-between mb-2">
+                            <span>Feature Engineering</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar bg-warning" style="width: 85%"></div>
+                        </div>
+                        <div class="d-flex justify-content-between mb-2">
+                            <span>DeepSeek AI</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar bg-warning" style="width: 90%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <div class="skill-card animated-element">
+                        <h4 class="mb-4">Other Skills</h4>
+                        <div class="d-flex flex-wrap">
+                            <span class="badge bg-primary me-2 mb-2 p-2">Java</span>
+                            <span class="badge bg-primary me-2 mb-2 p-2">C++</span>
+                            <span class="badge bg-primary me-2 mb-2 p-2">Data Structures</span>
+                            <span class="badge bg-primary me-2 mb-2 p-2">Algorithms</span>
+                            <span class="badge bg-primary me-2 mb-2 p-2">Computer Networks</span>
+                            <span class="badge bg-primary me-2 mb-2 p-2">SQL</span>
+                            <span class="badge bg-primary me-2 mb-2 p-2">Git</span>
+                            <span class="badge bg-primary me-2 mb-2 p-2">Data Visualization</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="skill-card animated-element">
+                        <h4 class="mb-4">AI & ML Libraries</h4>
+                        <div class="d-flex flex-wrap">
+                            <span class="badge bg-success me-2 mb-2 p-2">TensorFlow</span>
+                            <span class="badge bg-success me-2 mb-2 p-2">PyTorch</span>
+                            <span class="badge bg-success me-2 mb-2 p-2">Keras</span>
+                            <span class="badge bg-success me-2 mb-2 p-2">NLTK</span>
+                            <span class="badge bg-success me-2 mb-2 p-2">OpenCV</span>
+                            <span class="badge bg-success me-2 mb-2 p-2">SciPy</span>
+                            <span class="badge bg-success me-2 mb-2 p-2">Plotly</span>
+                            <span class="badge bg-success me-2 mb-2 p-2">XGBoost</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title">DeepSeek AI Projects</h2>
+            <p class="text-center text-white mb-5">Projects built using DeepSeek AI technology</p>
+            
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card animated-element">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Crypto Portfolio" class="project-img">
+                        <div class="project-content">
+                            <h4>Crypto Portfolio Builder (2025)</h4>
+                            <p class="text-muted">AI-driven cryptocurrency portfolio allocation tool that recommends ideal distribution for maximum returns with minimal risk.</p>
+                            <div class="mb-3">
+                                <span class="project-badge">DeepSeek AI</span>
+                                <span class="project-badge">Python</span>
+                                <span class="project-badge">Pandas</span>
+                                <span class="project-badge">Matplotlib</span>
+                            </div>
+                            <p class="mb-0"><strong>Features:</strong></p>
+                            <ul>
+                                <li>70% allocation to blue-chip cryptocurrencies</li>
+                                <li>25% to high-potential altcoins</li>
+                                <li>5% to stablecoins for liquidity</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card animated-element">
+                        <img src="https://images.unsplash.com/photo-1586769852836-bc069f19e1b6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Financial Analysis" class="project-img">
+                        <div class="project-content">
+                            <h4>Financial Analysis & Prediction</h4>
+                            <p class="text-muted">AI-powered system that analyzes market trends and predicts stock movements with high accuracy using DeepSeek models.</p>
+                            <div class="mb-3">
+                                <span class="project-badge">DeepSeek AI</span>
+                                <span class="project-badge">Machine Learning</span>
+                                <span class="project-badge">Scikit-learn</span>
+                                <span class="project-badge">Seaborn</span>
+                            </div>
+                            <p class="mb-0"><strong>Features:</strong></p>
+                            <ul>
+                                <li>Real-time market data processing</li>
+                                <li>Sentiment analysis of financial news</li>
+                                <li>Predictive modeling for stock trends</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card animated-element">
+                        <img src="https://images.unsplash.com/photo-1667453466805-75bbf36e8707?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Intelligent Chatbot" class="project-img">
+                        <div class="project-content">
+                            <h4>Intelligent Customer Support Chatbot</h4>
+                            <p class="text-muted">AI chatbot that handles customer queries in real-time using DeepSeek's NLP capabilities for natural conversations.</p>
+                            <div class="mb-3">
+                                <span class="project-badge">DeepSeek AI</span>
+                                <span class="project-badge">NLP</span>
+                                <span class="project-badge">Python</span>
+                                <span class="project-badge">JavaScript</span>
+                            </div>
+                            <p class="mb-0"><strong>Features:</strong></p>
+                            <ul>
+                                <li>Natural language understanding</li>
+                                <li>Context-aware responses</li>
+                                <li>24/7 customer support automation</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card animated-element">
+                        <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Automated Reports" class="project-img">
+                        <div class="project-content">
+                            <h4>Automated Report Generator</h4>
+                            <p class="text-muted">System that transforms raw data into comprehensive business reports with insights and visualizations using DeepSeek AI.</p>
+                            <div class="mb-3">
+                                <span class="project-badge">DeepSeek AI</span>
+                                <span class="project-badge">Python</span>
+                                <span class="project-badge">Pandas</span>
+                                <span class="project-badge">Plotly</span>
+                            </div>
+                            <p class="mb-0"><strong>Features:</strong></p>
+                            <ul>
+                                <li>Automated data analysis</li>
+                                <li>Dynamic report generation</li>
+                                <li>Interactive visualizations</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card animated-element">
+                        <img src="https://images.unsplash.com/photo-1550439062-609e1531270e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Code Assistant" class="project-img">
+                        <div class="project-content">
+                            <h4>AI-Powered Code Assistant</h4>
+                            <p class="text-muted">Intelligent programming assistant that suggests code completions, debugs errors, and optimizes code using DeepSeek models.</p>
+                            <div class="mb-3">
+                                <span class="project-badge">DeepSeek AI</span>
+                                <span class="project-badge">Python</span>
+                                <span class="project-badge">JavaScript</span>
+                                <span class="project-badge">VS Code API</span>
+                            </div>
+                            <p class="mb-0"><strong>Features:</strong></p>
+                            <ul>
+                                <li>Intelligent code completion</li>
+                                <li>Error detection and suggestions</li>
+                                <li>Code optimization recommendations</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card animated-element">
+                        <img src="https://images.unsplash.com/photo-1543286386-713bdd548da4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Sentiment Analysis" class="project-img">
+                        <div class="project-content">
+                            <h4>Social Media Sentiment Analysis</h4>
+                            <p class="text-muted">Tool that analyzes social media content to determine public sentiment about brands, products, or topics using DeepSeek NLP.</p>
+                            <div class="mb-3">
+                                <span class="project-badge">DeepSeek AI</span>
+                                <span class="project-badge">NLP</span>
+                                <span class="project-badge">Python</span>
+                                <span class="project-badge">API Integration</span>
+                            </div>
+                            <p class="mb-0"><strong>Features:</strong></p>
+                            <ul>
+                                <li>Real-time sentiment tracking</li>
+                                <li>Brand reputation monitoring</li>
+                                <li>Trend analysis visualization</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section bg-dark">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="row">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <div class="contact-form animated-element">
+                        <h3 class="mb-4">Send me a message</h3>
+                        <form>
+                            <div class="mb-3">
+                                <input type="text" class="form-control" placeholder="Your Name" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="email" class="form-control" placeholder="Your Email" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="text" class="form-control" placeholder="Subject">
+                            </div>
+                            <div class="mb-3">
+                                <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="about-content animated-element">
+                        <h3 class="mb-4">Contact Information</h3>
+                        <p class="mb-4">I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.</p>
+                        
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="me-3">
+                                <i class="fas fa-map-marker-alt fa-2x text-primary"></i>
+                            </div>
+                            <div>
+                                <h5>Location</h5>
+                                <p>Kashmir, India</p>
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="me-3">
+                                <i class="fas fa-envelope fa-2x text-primary"></i>
+                            </div>
+                            <div>
+                                <h5>Email</h5>
+                                <p>arifwani1995@gmail.com.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="me-3">
+                                <i class="fas fa-phone fa-2x text-primary"></i>
+                            </div>
+                            <div>
+                                <h5>Phone</h5>
+                                <p>+91 6005659068</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <h5>Connect with me</h5>
+                            <div class="d-flex mt-3">
+                                <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+                                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <h5 class="text-white">M Arif Wani</h5>
+                    <p>Machine Learning Engineer | Data Scientist | Web Developer</p>
+                    <p>Transforming data into intelligent solutions through innovative technology.</p>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h6 class="text-white">Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#home" class="text-white-50">Home</a></li>
+                        <li><a href="#about" class="text-white-50">About</a></li>
+                        <li><a href="#skills" class="text-white-50">Skills</a></li>
+                        <li><a href="#projects" class="text-white-50">Projects</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h6 class="text-white">Resources</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white-50">Resume</a></li>
+                        <li><a href="#" class="text-white-50">GitHub</a></li>
+                        <li><a href="#" class="text-white-50">Blog</a></li>
+                        <li><a href="#" class="text-white-50">Certifications</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="bg-light">
+            <div class="text-center py-3">
+                <p class="mb-0 text-white-50">© 2025 M Arif Wani. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Action Button -->
+    <a href="#home" class="floating-btn">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Animation on scroll
+        const animatedElements = document.querySelectorAll('.animated-element');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+        
+        animatedElements.forEach(element => {
+            observer.observe(element);
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Navbar background change on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.backgroundColor = 'rgba(13, 19, 33, 0.98)';
+                navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.3)';
+            } else {
+                navbar.style.backgroundColor = 'rgba(13, 19, 33, 0.95)';
+                navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.3)';
+            }
+        });
+    </script>
+</body>
+</html>
